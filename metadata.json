@@ -1,0 +1,6 @@
+{
+  "name": "پلتفرم وبساز هوشمند",
+  "description": "پلتفرم ساخت سایت گام‌به‌گام و تعاملی با استفاده از مدل‌های هوش مصنوعی",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
