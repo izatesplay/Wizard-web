@@ -195,6 +195,36 @@ This is a LANDING PAGE (صفحه فرود) website.
 
   const fontObj = getFontConfig(visual.fontFamily);
 
+  // Generate random creative design cues to guarantee 100% unique layouts even for identical data inputs
+  const layoutStyles = [
+    "Use a striking modern split-screen hero layout where one side features rich bold typographic headlines and the other features an interactive, dynamic glass card with floating, micro-animating items.",
+    "Structure the landing/hero container with an elegant asymmetric fluid grid, using custom CSS clip-paths or overlapping layers for a premium, non-standard layout architecture.",
+    "Design an immersive full-screen hero section featuring a dark/light blurred ambient glowing background sphere that follows subtle keyframe animations, giving a high-end web app feel.",
+    "Construct the hero with massive, oversized avant-garde display typography paired with a minimalistic clean structure, utilizing generous negative space and a staggered double-column introduction.",
+    "Incorporate a modern Bento-grid inspired hero visual container with mini compartments, where each compartment houses an interactive micro-detail or a beautifully animated statistic."
+  ];
+
+  const visualAccents = [
+    "Apply smooth interactive rotating card hover animations or subtle 3D lift transformations (using CSS perspectives or pure Tailwind transitions) on all main cards to elevate tactile feedback.",
+    "Add elegant custom animated background grid lines or decorative geometric outline elements that gently fade or morph on hover, providing a polished custom-crafted aesthetic.",
+    "Incorporate gorgeous floating glowing colored blobs/auroras in the backdrop (using absolute blur-3xl divs) that slowly pulse or drift using CSS keyframe animations.",
+    "Implement sleek accent underline effects or border draw-lines on hover for all primary interactive elements, utilizing custom CSS transitions for a high-fidelity boutique look.",
+    "Utilize sophisticated custom gradient masks or subtle glass border-lines (rgba-based) to separate sections, avoiding generic solid borders or basic horizontal dividers."
+  ];
+
+  const creativeAnimations = [
+    "Include a custom-crafted text writing/revealing typing delay effect or staggered fade-in up animation for the main headline and subtext, using lightweight CSS animations.",
+    "Incorporate elegant mouse-hover parallax-like drift on key floating interactive badges or badge labels, giving the interface a high-fidelity living response.",
+    "Implement a smooth custom horizontal marquee/infinite scroll track for categories or highlights, moving at a slow elegant pace to introduce fresh dynamic motion.",
+    "Design custom CSS pulsed radial wave ripples behind the primary action button to naturally draw the user's focus with an organic glowing visual heartbeat.",
+    "Create a staggered cascade entry animation for cards, menu items, or product lists so that items enter the screen one by one with a refined micro-delay."
+  ];
+
+  const randomLayout = layoutStyles[Math.floor(Math.random() * layoutStyles.length)];
+  const randomAccent = visualAccents[Math.floor(Math.random() * visualAccents.length)];
+  const randomAnim = creativeAnimations[Math.floor(Math.random() * creativeAnimations.length)];
+  const randomSeed = Math.floor(Math.random() * 1000000);
+
   return `You are a world-class principal front-end engineer and award-winning UI/UX designer.
 Your task is to write a single, complete, stunning, fully responsive, and highly functional website file in HTML+CSS+JS based on the user's requirements.
 The website must be absolutely outstanding, visually gorgeous, and look like a premium premium template with fluid animations and rich interactive features.
@@ -254,6 +284,12 @@ Here are the strict requirements of the generated code:
 11. Responsive layout: Build a fully functional mobile navigation bar (hamburger menu) that toggles open/close beautifully on touch screens.
 12. Animations: Build a lightweight intersection observer in native JS to animate components as they scroll into view (e.g. fading in, slide-up), creating a fluid premium experience. Add hover transitions to all buttons and cards.
 13. Content completeness: DO NOT use any "lorem ipsum" or mock placeholders like "Lorem, ipsum dolor sit amet...". Write real, beautiful, persuasive copy in Persian relevant to the specific business name and theme. Create beautiful layout with structured navigation links (خانه، خدمات، درباره ما، تماس با ما).
+14. STRICT UNIQUENESS GUARANTEE (RANDOM SEED: ${randomSeed}):
+    To ensure this website is 100% unique, custom-made, and non-repetitive, you MUST implement a completely original, bespoke visual layout. Do NOT copy standard cookie-cutter layouts.
+    - Specifically utilize this layout blueprint: ${randomLayout}
+    - Embellish with this custom design accent: ${randomAccent}
+    - Inject this micro-interaction/motion signature: ${randomAnim}
+    - Generate a fresh, signature arrangement of components, sections, and grids that is uniquely tailored. Avoid generic structures. Every block must feel high-fidelity, polished, and architecturally distinct.
 
 Make sure the output code is completely self-contained, with no external styling needed. Let's build a masterpiece!`;
 }
