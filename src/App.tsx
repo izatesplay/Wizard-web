@@ -56,6 +56,8 @@ const INITIAL_STATE: WebsiteData = {
   socialInstagram: 'delavaran_mobl',
   socialTelegram: 'delavaran_mobl',
   welcomeMessage: 'به گالری مبلمان دلاوران خوش آمدید. طراحی ماندگار مبل‌های راحتی و سلطنتی مدرن با هنر دست استادکاران برتر ایرانی برای دکوراسیون خاص خانه‌ شما.',
+  logoUrl: '',
+  seoKeywords: 'مبل دلاوران, خرید مبل, مبل راحتی, مبلمان کلاسیک, گالری مبل تهران',
   visual: {
     paletteName: 'شفق قطبی زنده (Aurora Teal)',
     primaryColor: '#0d9488',
@@ -269,6 +271,7 @@ export default function App() {
             code={generatedHtml}
             siteName={data.name}
             onBack={() => setCurrentStep(5)}
+            data={data}
           />
         ) : (
           /* Main Multi-Step Form Layout */

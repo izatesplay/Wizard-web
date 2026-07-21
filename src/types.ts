@@ -61,6 +61,8 @@ export interface WebsiteData {
   socialInstagram: string;
   socialTelegram: string;
   welcomeMessage: string;
+  logoUrl?: string;
+  seoKeywords?: string;
 
   // Step 4: Visual Identity
   visual: VisualConfig;

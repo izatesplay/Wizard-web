@@ -9,6 +9,8 @@ export interface PromptData {
   socialInstagram?: string;
   socialTelegram?: string;
   socialGithub?: string;
+  logoUrl?: string;
+  seoKeywords?: string;
   categories?: Array<{
     id: string;
     name: string;
@@ -68,6 +70,8 @@ export function generateSystemPrompt(data: PromptData): string {
     socialInstagram,
     socialTelegram,
     socialGithub,
+    logoUrl,
+    seoKeywords,
     categories,
     visual,
   } = data;
@@ -290,6 +294,28 @@ Here are the strict requirements of the generated code:
     - Embellish with this custom design accent: ${randomAccent}
     - Inject this micro-interaction/motion signature: ${randomAnim}
     - Generate a fresh, signature arrangement of components, sections, and grids that is uniquely tailored. Avoid generic structures. Every block must feel high-fidelity, polished, and architecturally distinct.
+15. DYNAMIC DATA INTEGRATION (CRITICAL FOR WORDPRESS THEME SYNC):
+    To enable this website to be fully manageable from a WordPress dashboard or options panel, you MUST store all dynamic content (such as product lists, food menu categories, portfolio projects, blog posts, etc.) inside a single global JavaScript variable declared at the very beginning of your main <script> tag:
+    window.STORE_DATA = [ ... ];
+    This array should contain all categories and their items (products, menus, articles) exactly as configured.
+    Example of exact data you MUST seed into window.STORE_DATA:
+    window.STORE_DATA = ${JSON.stringify(categories || [])};
+    
+    CRITICAL: You MUST write your dynamic rendering functions (e.g. product rendering grids, category tab change listeners, portfolio item filter loops, price calculators, shopping cart additions, etc.) to fetch, filter, and render their items dynamically from this 'window.STORE_DATA' global variable instead of hardcoding static HTML cards in the markup. When the page loads, your JavaScript code must check if 'window.STORE_DATA' contains items and render those items dynamically in the DOM using your exact chosen custom premium theme style, color schema, and interactions. This is a non-negotiable requirement so we can inject dynamic WordPress products on export!
+
+16. SEO OPTIMIZATION AND KEYWORDS (CRITICAL):
+    - You MUST optimize the website's HTML headers for Search Engine Optimization (SEO) using the provided keywords: "${seoKeywords || ''}"
+    - Specifically implement:
+      * A custom meta tag inside the head: <meta name="keywords" content="${seoKeywords || 'سایت, وب‌سایت'}">
+      * A search-engine friendly meta tag: <meta name="description" content="${welcomeMessage}">
+      * Share-optimized OpenGraph tags (og:title matching "${name}", og:description matching the business niche, og:type as website, and og:locale as "fa_IR").
+      * Semantic HTML tags (header, main, section, footer, article, h1, h2) to ensure perfect crawlability.
+      * Descriptive alt attributes on all images incorporating the SEO keywords contextually (e.g. alt="${name} - ${seoKeywords}").
+
+17. SITE LOGO INTEGRATION (OPTIONAL):
+    - Logo URL: "${logoUrl || ''}"
+    - If a valid logo URL is specified, you MUST render it inside a beautifully proportioned img tag as the primary brand logo in BOTH the header and the footer (e.g., <img src="${logoUrl}" alt="${name}" class="h-10 md:h-12 w-auto object-contain transition-transform hover:scale-105">).
+    - If the logo URL is empty, not provided, or invalid, gracefully fallback to displaying the beautiful text-based brand name "${name}" in the header and footer with elegant typography, tracking, and styling consistent with the chosen style "${style}".
 
 Make sure the output code is completely self-contained, with no external styling needed. Let's build a masterpiece!`;
 }
